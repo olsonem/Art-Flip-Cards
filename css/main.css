@@ -1,8 +1,6 @@
 
-.info-card {
-  float: left;
-	margin: 10px;
-	-webkit-perspective: 600px;
+.card {
+	margin: 20px;
 }
 
 .front, .back {
@@ -28,14 +26,13 @@
 	width: 250px;
 	height: 330px;
 	-webkit-transform: rotateY(-180deg);
-	overflow: scroll;
 }
 
-.info-card:click .back {
+.card:click .back {
 	-webkit-transform: rotateY(0);
 }
 
-.info-card:click .front {
+.card:click .front {
 	-webkit-transform: rotateY(180deg);
 }
 
