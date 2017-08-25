@@ -22,13 +22,13 @@ for (let card of cardsetData){
   cardContainer.setAttribute('class', 'card-image');
   
   let img = document.createElement('img');
-  img.setAttribute('src', `img/${slide.filename}`);
+  img.setAttribute('src', `img/${card.filename}`);
   img.style.width = "100%";
   
- card.appendChild(img);
+ cardset.appendChild(img);
  
  cardsetContainer.appendChild(card); 
- slideCount++; 
+ cardCount++; 
 }
 
 /*this.cardset = document.querySelector('#cardset');  
