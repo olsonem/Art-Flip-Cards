@@ -16,58 +16,7 @@ let cardsetData = [
 ]
 
 
-//sets up card set container
-let cardsetContainer = document.querySelector("#cardset");
-let itemCount = 1
-for (let card of cardsetData){
-  //sets up row to hold 3 containers
-  if (itemCount % 3 === 0){
-    let rowOfCards = document.createElement('div');
-    rowOfCards.setAttribute('class', 'row');
-    
-    } else {
-      //sets up card container
-      let cardContainer = document.createElement('div');
-      cardContainer.setAttribute('class', 'col-md-3', 'filp-container');
-      
-      //sets up card 
-      let card = document.createElement('div');
-      card.setAttribute('class', 'card');
-      
-      //sets up front of card
-      let frontOfCard = document.createElement('div');
-      frontOfCard.setAttribute('class', 'front');
-  
-      //fills front of card with an image
-      let cardImage = document.createElement('img');
-      cardImage.setAttribute('class', 'card-image', 'img',`img/${card.filename}`);
-      cardImage.style.width = "100%";
-      
-      //sets up back of card
-      let backOfCard = document.createElement('div');
-      backOfCard.setAttribute('class', 'back');
-    
-      //fills back of card
-      let cardDescription = document.createElement('p');
-      cardDescription.setAttribute('class', 'description');
-      
-      cardsetContainer.appendChild(rowOfCards); 
-      rowOfCards.appendChild(cardContainer);
-      cardContainer.appendChild(card);
-      card.appendChild(frontOfCard);
-      frontOfCard.appendChild(cardImage);
-      card.appendChild(backOfCard);
-      backOfCard.appendChild(cardDescription);
-      
 
-
-   }
-      
-      
-      
-  
-  itemCount++; 
-  }
  
 
 
