@@ -7,8 +7,6 @@ for (let card of cards){
 }
 
 
-// Code that adds captions to slideshow
-
 //data for the cards
 
 let cardsetData = [
@@ -17,44 +15,60 @@ let cardsetData = [
   {filename: "images/cezanne.jpg", description:"Cézanne rarely painted flowering plants or fresh-cut bouquets, which were susceptible to wilting under his protracted gaze. He included potted plants only in three still lifes, he seems to have reserved this particular table, with its scalloped apron and distinctive bowed legs, for three of his finest still lifes."}
 ]
 
-//sets up card container
+
+//sets up card set container
 let cardsetContainer = document.querySelector("#cardset");
+let itemCount = 1
 for (let card of cardsetData){
-  for (let i=0; i<3; i++){
-    let rowOfCards = document.createElement('div')
+  //sets up row to hold 3 containers
+  if (itemCount % 3 === 0){
+    let rowOfCards = document.createElement('div');
     rowOfCards.setAttribute('class', 'row');
-  
-    for (let j=0; j<3; j++){
-      let cardContainer = document.createElement('div')
+    
+    } else {
+      //sets up card container
+      let cardContainer = document.createElement('div');
       cardContainer.setAttribute('class', 'col-md-3', 'filp-container');
-  
-     let card = document.createElement('div')
+      
+      //sets up card 
+      let card = document.createElement('div');
       card.setAttribute('class', 'card');
-  
-      let frontOfCard = document.createElement('div')
+      
+      //sets up front of card
+      let frontOfCard = document.createElement('div');
       frontOfCard.setAttribute('class', 'front');
   
-      let cardImage = document.createElement('img')
-      cardImage.setAttribute('class', 'card-image');
-      img.setAttribute('src', `img/${card.filename}`);
-      img.style.width = "100%";
-  
-      let backOfCard = document.createElement('div')
+      //fills front of card with an image
+      let cardImage = document.createElement('img');
+      cardImage.setAttribute('class', 'card-image', 'src',`img/${card.filename}`);
+      cardImage.style.width = "100%";
+      
+      //sets up back of card
+      let backOfCard = document.createElement('div');
       backOfCard.setAttribute('class', 'back');
-  
-      let cardDescription = document.createElement('p')
+    
+      //fills back of card
+      let cardDescription = document.createElement('p');
       cardDescription.setAttribute('class', 'description');
       
-      newCard.dataset.x = i;
-      newCard.dataset.y = j;
-      newCol.appendChild(newCard);
-      newRow.appendChild(newCol);
-    }
-  }
+      cardsetContainer.appendChild(rowOfCards); 
+      rowOfCards.appendChild(cardContainer);
+      cardContainer.appendChild(card);
+      card.appendChild(frontOfCard);
+      frontOfCard.appendChild(cardImage);
+      card.appendChild(backOfCard);
+      backOfCard.appendChild(cardDescription);
+      
 
- cardset.appendChild(img);
+
+   }
+      
+      
+      
+  
+  itemCount++; 
+  }
  
- cardsetContainer.appendChild(card); 
- cardCount++; 
-}
+
+
 
