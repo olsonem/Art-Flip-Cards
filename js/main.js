@@ -19,53 +19,75 @@ let cardsetData = [
 //sets up card set container
 let cardsetContainer = document.querySelector("#cardset");
 let itemCount = 1
+rowOfCards = document.createElement('div')
+rowOfCards.setAttribute('class', 'row');
 for (let card of cardsetData){
-  //sets up row to hold 3 containers
   if (itemCount % 3 === 0){
-    let rowOfCards = document.createElement('div');
-    rowOfCards.setAttribute('class', 'row');
-    
-    } else {
-      //sets up card container
       let cardContainer = document.createElement('div');
-      cardContainer.setAttribute('class', 'col-md-3', 'filp-container');
+        cardContainer.setAttribute('class', 'col-md-3', 'filp-container');
+      rowOfCards.appendChild(cardContainer);
       
       //sets up card 
       let card = document.createElement('div');
-      card.setAttribute('class', 'card');
+        card.setAttribute('class', 'card');
+      cardContainer.appendChild(card);
       
       //sets up front of card
       let frontOfCard = document.createElement('div');
-      frontOfCard.setAttribute('class', 'front');
+        frontOfCard.setAttribute('class', 'front');
+      card.appendChild(frontOfCard);
   
       //fills front of card with an image
       let cardImage = document.createElement('img');
-      cardImage.setAttribute('class', 'card-image', 'src',`img/${card.filename}`);
-      cardImage.style.width = "100%";
+        cardImage.setAttribute('class', 'card-image', 'img',`img/${card.filename}`);
+        cardImage.style.width = "100%";
+      frontOfCard.appendChild(cardImage);
       
       //sets up back of card
       let backOfCard = document.createElement('div');
-      backOfCard.setAttribute('class', 'back');
+        backOfCard.setAttribute('class', 'back');
+      card.appendChild(backOfCard);
     
       //fills back of card
       let cardDescription = document.createElement('p');
-      cardDescription.setAttribute('class', 'description');
+        cardDescription.setAttribute('class', 'description');
+       backOfCard.appendChild(cardDescription);
       
+      //add current rowOfCards to cardsetContainer
       cardsetContainer.appendChild(rowOfCards); 
-      rowOfCards.appendChild(cardContainer);
-      cardContainer.appendChild(card);
-      card.appendChild(frontOfCard);
-      frontOfCard.appendChild(cardImage);
-      card.appendChild(backOfCard);
-      backOfCard.appendChild(cardDescription);
       
-
-
-   }
+      // create new rowOfCards
+      rowOfCards = document.createElement('div')
+      rowOfCards.setAttribute('class', 'row');
       
-      
-      
+         } else { 
+       let cardContainer = document.createElement('div');
+      cardContainer.setAttribute('class', 'col-md-3', 'filp-container');
+    rowOfCards.appendChild(cardContainer);
   
+     let card = document.createElement('div');
+      card.setAttribute('class', 'card');
+    cardContainer.appendChild(card);
+  
+     let frontOfCard = document.createElement('div');
+      frontOfCard.setAttribute('class', 'front');
+    card.appendChild(frontOfCard)
+  
+     let cardImage = document.createElement('img');
+      cardImage.setAttribute('class', 'card-image', 'img',`img/${card.filename}`);
+      cardImage.style.width = "100%";
+    frontOfCard.appendChild(cardImage)
+  
+     let backOfCard = document.createElement('div')
+      backOfCard.setAttribute('class', 'back');
+    card.appendChild(backOfCard);
+
+     let cardDescription = document.createElement('p')
+      cardDescription.setAttribute('class', 'description');
+    backOfCard.appendChild(cardDescription);
+      
+     }
+     
   itemCount++; 
   }
  
