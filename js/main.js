@@ -40,7 +40,7 @@ for (let card of cardsetData){
   
       //fills front of card with an image
       let cardImage = document.createElement('img');
-      cardImage.setAttribute('class', 'card-image', 'src',`img/${card.filename}`);
+      cardImage.setAttribute('class', 'card-image', 'img',`img/${card.filename}`);
       cardImage.style.width = "100%";
       
       //sets up back of card
